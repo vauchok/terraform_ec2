@@ -20,6 +20,7 @@ variable "user_data" {
 
 variable "security_groups" {
   description = "Default sg for instance"
+  default     = []
 }
 
 variable "tags" {

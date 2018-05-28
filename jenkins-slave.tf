@@ -10,6 +10,6 @@ module "jenkins-slave" {
   number_of_instances = "${var.number_of_instances}"
   security_groups = "${var.security_groups}"
   instance_type = "${var.instance_type}"
-  user_data = "${file(var.user_data)}"
+  user_data = "${var.user_data}"
   tags = "${var.tags}"
 }

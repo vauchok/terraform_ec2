@@ -6,10 +6,6 @@ variable "instance_name" {
 
 variable "instance_type" {}
 
-variable "subnet_id" {
-  description = "The VPC subnet the instance(s) will go in"
-}
-
 variable "ami_id" {
   description = "The AMI to use"
 }

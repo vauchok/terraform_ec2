@@ -5,8 +5,8 @@ provider "aws" {
 module "jenkins-slave" {
   source = "./module"
 
-  ami = "${var.ami_id}"
-  count = "${var.number_of_instances}"
+  ami_id = "${var.ami_id}"
+  number_of_instances = "${var.number_of_instances}"
   security_groups = "${var.security_groups}"
   subnet_id = "${var.subnet_id}"
   instance_type = "${var.instance_type}"

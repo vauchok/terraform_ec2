@@ -16,6 +16,7 @@ variable "number_of_instances" {
 
 variable "vpc_security_group_ids" {
   description = "A list of security group IDs to associate with"
+  default     = []
 }
 
 variable "user_data" {

@@ -10,6 +10,10 @@ variable "ami_id" {
   description = "The AMI to use"
 }
 
+variable "key_name" {
+  description = "The key name to use for the instance"
+}
+
 variable "number_of_instances" {
   description = "number of instances to make"
 }

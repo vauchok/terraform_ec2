@@ -27,6 +27,10 @@ variable "user_data" {
   description = "The path to a file with user_data for the instances"
 }
 
+variable "key_name" {
+  description = "The key name to use for the instance"
+}
+
 variable "security_groups" {
   description = "Default sg for instance"
   default     = []

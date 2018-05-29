@@ -1,10 +1,10 @@
-// Module specific variables
-
 variable "instance_name" {
   description = "Used to populate the Name tag. This is done in main.tf"
 }
 
-variable "instance_type" {}
+variable "instance_type" {
+  description = "The type of instance to start"
+}
 
 variable "ami_id" {
   description = "The AMI to use"
@@ -15,7 +15,7 @@ variable "key_name" {
 }
 
 variable "number_of_instances" {
-  description = "number of instances to make"
+  description = "Number of instances to make"
 }
 
 variable "subnet_id" {

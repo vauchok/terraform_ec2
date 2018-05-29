@@ -14,6 +14,12 @@ variable "number_of_instances" {
   description = "number of instances to make"
 }
 
+variable "subnet_id" {
+  description = " The VPC Subnet ID to launch in"
+  default     = []
+}
+
+
 variable "vpc_security_group_ids" {
   description = "A list of security group IDs to associate with"
   default     = []

@@ -19,6 +19,11 @@ variable "vpc_security_group_ids" {
   default     = []
 }
 
+variable "subnet_id" {
+  description = " The VPC Subnet ID to launch in"
+  default     = []
+}
+
 variable "user_data" {
   description = "The path to a file with user_data for the instances"
 }

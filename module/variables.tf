@@ -14,6 +14,10 @@ variable "number_of_instances" {
   description = "number of instances to make"
 }
 
+variable "vpc_security_group_ids" {
+  description = "A list of security group IDs to associate with"
+}
+
 variable "user_data" {
   description = "The path to a file with user_data for the instances"
 }

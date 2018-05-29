@@ -2,7 +2,8 @@
 resource "aws_instance" "ec2_instance" {
     ami = "${var.ami_id}"
     count = "${var.number_of_instances}"
-    security_groups = "${var.security_groups}"
+    #Ssecurity_groups = "${var.security_groups}"
+    vpc_security_group_ids = "${var.vpc_security_group_ids}"
     instance_type = "${var.instance_type}"
     user_data = "${file(var.user_data)}"
     tags {

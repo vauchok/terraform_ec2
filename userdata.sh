@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yum -y update
-yum -y install git, epel-release, python-pip
-pip install update pip
+yum -y install epel-release
+yum -y install git, python-pip
+pip install --upgrade pip
 pip install awscli

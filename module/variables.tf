@@ -1,4 +1,4 @@
-variable "ami" {
+variable "ami_id" {
   description = "(Required) The AMI to use for the instance"
 }
 
@@ -6,6 +6,9 @@ variable "number_of_instances" {
   description = "Number of instances to make"
 }
 
+variable "instance_name" {
+  description = "Used to populate the Name tag. This is done in main.tf"
+}
 
 variable "availability_zone" {
   description = "(Optional) The AZ to start the instance in"

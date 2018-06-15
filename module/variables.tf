@@ -46,6 +46,7 @@ variable "key_name" {
 
 variable "get_password_data" {
   description = "(Optional) If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the password_data attribute. See GetPasswordData for more information"
+  default = false
 }
 
 variable "monitoring" {

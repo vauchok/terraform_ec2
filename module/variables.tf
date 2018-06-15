@@ -36,6 +36,7 @@ variable "disable_api_termination" {
 
 variable "instance_initiated_shutdown_behavior" {
   description = " (Optional) Shutdown behavior for the instance. Amazon defaults this to stop for EBS-backed instances and terminate for instance-store instances. Cannot be set on instance-store instances. See Shutdown Behavior for more information"
+  default = ""
 }
 
 variable "instance_type" {
@@ -44,6 +45,7 @@ variable "instance_type" {
 
 variable "key_name" {
   description = "(Optional) The key name to use for the instance"
+  default = ""
 }
 
 variable "get_password_data" {
@@ -53,15 +55,18 @@ variable "get_password_data" {
 
 variable "monitoring" {
   description = "(Optional) If true, the launched EC2 instance will have detailed monitoring enabled"
+  default = false
 }
 
 variable "security_groups" {
   description = "(Optional) A list of security group names to associate with. If you are creating Instances in a VPC, use vpc_security_group_ids instead"
+  type = "list"
   default     = []
 }
 
 variable "vpc_security_group_ids" {
   description = "(Optional) A list of security group IDs to associate with"
+  type = "list"
   default     = []
 }
 
@@ -84,6 +89,7 @@ variable "source_dest_check" {
 
 variable "user_data" {
   description = "(Optional) The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see user_data_base64 instead"
+  default = ""
 }
 
 variable "user_data_base64" {

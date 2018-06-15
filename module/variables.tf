@@ -20,6 +20,7 @@ variable "placement_group" {
 
 variable "tenancy" {
   description = "(Optional) The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command"
+  default = "default"
 }
 
 variable "ebs_optimized" {

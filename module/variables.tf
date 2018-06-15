@@ -232,16 +232,3 @@ variable "delete_on_termination_network_interface" {
 variable "cpu_credits" {
   description = "(Optional) The credit option for CPU usage"
 }
-
-
-variable "delete" {
-  description = "(Defaults to 20 mins) Used when terminating the instance"
-}
-
-variable "delete" {
-  description = "(Defaults to 20 mins) Used when terminating the instance"
-}
-
-variable "delete" {
-  description = "(Defaults to 20 mins) Used when terminating the instance"
-}

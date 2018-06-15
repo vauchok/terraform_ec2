@@ -16,6 +16,7 @@ variable "availability_zone" {
 
 variable "placement_group" {
   description = "(Optional) The Placement Group to start the instance in"
+  default = ""
 }
 
 variable "tenancy" {
@@ -74,6 +75,7 @@ variable "associate_public_ip_address" {
 
 variable "private_ip" {
   description = "(Optional) Private IP address to associate with the instance in a VPC"
+  default = ""
 }
 
 variable "source_dest_check" {

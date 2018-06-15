@@ -76,6 +76,7 @@ variable "subnet_id" {
 
 variable "associate_public_ip_address" {
   description = "(Optional) Associate a public ip address with an instance in a VPC. Boolean value"
+  default = false
 }
 
 variable "private_ip" {
@@ -110,6 +111,7 @@ variable "tags" {
 
 variable "volume_tags" {
   description = "(Optional) A mapping of tags to assign to the devices created by the instance at launch time"
+  default = {}
 }
 
 variable "root_block_device" {
@@ -170,6 +172,7 @@ variable "volume_size_root" {
 
 variable "iops_root" {
   description = "(Optional) The amount of provisioned IOPS. This is only valid for volume_type of 'io1', and must be specified if using that type"
+  default = ""
 }
 
 variable "delete_on_termination_root" {
@@ -188,6 +191,7 @@ variable "snapshot_id_ebs" {
 }
 variable "volume_type_ebs" {
   description = "(Optional) The type of volume. Can be 'standard', 'gp2', or 'io1'"
+  default = "standard"
 }
 
 variable "volume_size_ebs" {

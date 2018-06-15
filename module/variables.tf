@@ -2,6 +2,11 @@ variable "ami" {
   description = "(Required) The AMI to use for the instance"
 }
 
+variable "number_of_instances" {
+  description = "Number of instances to make"
+}
+
+
 variable "availability_zone" {
   description = "(Optional) The AZ to start the instance in"
 }

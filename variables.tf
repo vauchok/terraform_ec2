@@ -6,7 +6,7 @@ variable "instance_type" {
   description = "The type of instance to start"
 }
 
-variable "ami_id" {
+variable "ami" {
   description = "The AMI to use"
 }
 

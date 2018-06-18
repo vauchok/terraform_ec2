@@ -270,3 +270,8 @@ variable "cpu_credits" {
   description = "(Optional) The credit option for CPU usage"
   default     = "standard"
 }
+
+variable "create_eip" {
+  description = "If set to true, create an EIP for the instance"
+  default = true
+}

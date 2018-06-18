@@ -27,14 +27,26 @@ resource "aws_instance" "ec2_instance" {
   instance_initiated_shutdown_behavior = "${var.instance_initiated_shutdown_behavior}"
   placement_group                      = "${var.placement_group}"
   tenancy                              = "${var.tenancy}"
+
   tags = "${merge(var.tags, map("Name", var.number_of_instances > 1 ? format("%s-%d", var.instance_name, count.index+1) : var.instance_name))}"
+  
   lifecycle {
     # Due to several known issues in Terraform AWS provider related to arguments of aws_instance:
     # (eg, https://github.com/terraform-providers/terraform-provider-aws/issues/2036)
     # we have to ignore changes in the following arguments
     ignore_changes = ["private_ip", "root_block_device"]
   }
+  
   credit_specification {
     cpu_credits = "${var.cpu_credits}"
   }
+
+
 }
+
+resource "aws_eip" "this" {
+  count = "${var.create_eip}"
+  vpc      = true
+  instance = "${aws_instance.ec2_instance.id}"
+}
+

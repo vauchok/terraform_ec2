@@ -235,7 +235,7 @@ variable "device_name_ephemeral" {
 
 variable "virtual_name_ephemeral" {
   description = "(Optional) The Instance Store Device Name (e.g. 'ephemeral0')"
-  default = ""
+  type = "string"
 }
 
 variable "no_device_ephemeral" {

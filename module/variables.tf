@@ -149,14 +149,17 @@ variable "credit_specification" {
 # https://www.terraform.io/docs/configuration/resources.html#timeouts 
 variable "create" {
   description = "(Defaults to 10 mins) Used when launching the instance (until it reaches the initial running state)"
+  default = 10
 }
 
 variable "update" {
   description = "(Defaults to 10 mins) Used when stopping and starting the instance when necessary during update - e.g. when changing instance type"
+  default = 10
 }
 
 variable "delete" {
   description = "(Defaults to 20 mins) Used when terminating the instance"
+  default = 10
 }
 
 
@@ -169,6 +172,7 @@ variable "delete" {
 # root_block_device. Modifying any of the root_block_device settings requires resource replacement:
 variable "volume_type_root" {
   description = "(Optional) The type of volume. Can be 'standard', 'gp2', or 'io1'"
+  default = "standard"
 }
 
 variable "volume_size_root" {

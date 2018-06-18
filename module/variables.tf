@@ -184,10 +184,12 @@ variable "delete_on_termination_root" {
 # ebs_block_device cannot be mixed with external aws_ebs_volume + aws_volume_attachment resources:
 variable "device_name_ebs" {
   description = "The name of the device to mount (available for ephemeral_block_device too)"
+  default = ""
 }
 
 variable "snapshot_id_ebs" {
   description = "(Optional) The Snapshot ID to mount"
+  default = ""
 }
 variable "volume_type_ebs" {
   description = "(Optional) The type of volume. Can be 'standard', 'gp2', or 'io1'"
@@ -201,6 +203,7 @@ variable "volume_size_ebs" {
 
 variable "iops_ebs" {
   description = "(Optional) The amount of provisioned IOPS. This is only valid for volume_type of 'io1', and must be specified if using that type"
+  default = ""
 }
 
 variable "delete_on_termination_ebs" {
@@ -217,10 +220,12 @@ variable "encrypted_ebs" {
 # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames
 variable "device_name_ephemeral" {
   description = "The name of the device to mount"
+  default = ""
 }
 
 variable "virtual_name_ephemeral" {
   description = "(Optional) The Instance Store Device Name (e.g. 'ephemeral0')"
+  default = ""
 }
 
 variable "no_device_ephemeral" {
@@ -231,9 +236,11 @@ variable "no_device_ephemeral" {
 # Network interfaces
 variable "device_index" {
   description = "(Required) The integer index of the network interface attachment. Limited by instance type"
+  default = ""
 }
 variable "network_interface_id" {
   description = "(Required) The ID of the network interface to attach"
+  default = ""
 }
 
 variable "delete_on_termination_network_interface" {
@@ -246,4 +253,5 @@ variable "delete_on_termination_network_interface" {
 # can be applied/modified to the EC2 Instance at any time
 variable "cpu_credits" {
   description = "(Optional) The credit option for CPU usage"
+  default = ""
 }

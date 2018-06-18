@@ -196,6 +196,7 @@ variable "volume_type_ebs" {
 
 variable "volume_size_ebs" {
   description = "(Optional) The size of the volume in gigabytes"
+  default = ""
 }
 
 variable "iops_ebs" {

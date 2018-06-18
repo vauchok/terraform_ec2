@@ -177,6 +177,7 @@ variable "volume_type_root" {
 
 variable "volume_size_root" {
   description = "(Optional) The size of the volume in gigabytes"
+  default = ""
 }
 
 variable "iops_root" {
@@ -239,6 +240,7 @@ variable "virtual_name_ephemeral" {
 
 variable "no_device_ephemeral" {
   description = "(Optional) Suppresses the specified device included in the AMI's block device mapping"
+  default = false
 }
 
 

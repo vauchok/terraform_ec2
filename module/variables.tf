@@ -12,6 +12,7 @@ variable "instance_name" {
 
 variable "availability_zone" {
   description = "(Optional) The AZ to start the instance in"
+  default = ""
 }
 
 variable "placement_group" {
@@ -86,6 +87,7 @@ variable "private_ip" {
 
 variable "source_dest_check" {
   description = "(Optional) Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true"
+  default = true
 }
 
 variable "user_data" {
@@ -95,14 +97,17 @@ variable "user_data" {
 
 variable "user_data_base64" {
   description = "(Optional) Can be used instead of user_data to pass base64-encoded binary data directly. Use this instead of user_data whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption"
+  default = ""
 }
 
 variable "iam_instance_profile" {
   description = "(Optional) The IAM Instance Profile to launch the instance with"
+  default = ""
 }
 
 variable "ipv6_address_count" {
   description = "(Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet"
+  default = "0"
 }
 
 variable "tags" {
@@ -116,22 +121,22 @@ variable "volume_tags" {
 
 variable "root_block_device" {
   description = "(Optional) Customize details about the root block device of the instance. See Block Devices below for details"
-  default = {}
+  default = []
 }
 
 variable "ebs_block_device" {
   description = "(Optional) Additional EBS block devices to attach to the instance. See Block Devices below for details"
-  default = {}
+  default = []
 }
 
 variable "ephemeral_block_device" {
   description = "(Optional) Customize Ephemeral (also known as Instance Store) volumes on the instance. See Block Devices below for details"
-  default = {}
+  default = []
 }
 
 variable "network_interface" {
   description = "(Optional) Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details"
-  default = {}
+  default = []
 }
 
 variable "credit_specification" {
@@ -253,5 +258,5 @@ variable "delete_on_termination_network_interface" {
 # can be applied/modified to the EC2 Instance at any time
 variable "cpu_credits" {
   description = "(Optional) The credit option for CPU usage"
-  default = ""
+  default = "standard"
 }

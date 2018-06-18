@@ -1,10 +1,10 @@
-instance_name="JS"
+instance_name="jenkins-slave"
 instance_type="t2.micro"
 ami="ami-78485818"
 number_of_instances=2
 count_eip=2
 user_data="./userdata.sh"
-vpc_security_group_ids=["sg-6a013413"]
+vpc_security_group_ids=["sg-6a013413","sg-9bcaffe2"]
 aws_region="us-west-1"
 subnet_id="subnet-37b0de6c"
 key_name="wk-iad-dev-instance"

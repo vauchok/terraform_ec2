@@ -37,4 +37,8 @@ resource "aws_instance" "ec2_instance" {
     # we have to ignore changes in the following arguments
     ignore_changes = ["private_ip", "root_block_device"]
   }
+
+  credit_specification {
+    cpu_credits = "${var.cpu_credits}"
+  }
 }

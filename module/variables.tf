@@ -112,6 +112,7 @@ variable "ipv6_address_count" {
 
 variable "tags" {
   description = "(Optional) A mapping of tags to assign to the resource"
+  default = {}
 }
 
 variable "volume_tags" {
@@ -235,7 +236,7 @@ variable "device_name_ephemeral" {
 
 variable "virtual_name_ephemeral" {
   description = "(Optional) The Instance Store Device Name (e.g. 'ephemeral0')"
-  type = "string"
+  default = ""
 }
 
 variable "no_device_ephemeral" {

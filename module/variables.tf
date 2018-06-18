@@ -271,7 +271,7 @@ variable "cpu_credits" {
   default     = "standard"
 }
 
-variable "create_eip" {
+variable "count_eip" {
   description = "If set to true, create an EIP for the instance"
-  default = false
+  default = 0
 }

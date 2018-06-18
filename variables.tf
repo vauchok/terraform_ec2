@@ -42,6 +42,6 @@ variable "tags" {
 
 variable "aws_region" {}
 
-variable "create_eip" {
+variable "count_eip" {
   description = "If set to true, create an EIP for the instance"
 }

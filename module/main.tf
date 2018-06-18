@@ -49,5 +49,3 @@ resource "aws_eip" "this" {
   vpc      = true
   instance = "${element(aws_instance.ec2_instance.*.id, count.index)}"
 }
-
-# instance = "${element(aws_instance.ec2_instance.*.id, aws_instance.ec2_instance.*.count.index)}"

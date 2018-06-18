@@ -272,6 +272,6 @@ variable "cpu_credits" {
 }
 
 variable "count_eip" {
-  description = "If set to true, create an EIP for the instance"
+  description = "If you want for each enstance - count_eip shoul equal number_of_instances"
   default = 0
 }

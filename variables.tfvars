@@ -7,3 +7,4 @@ vpc_security_group_ids=["sg-6a013413"]
 aws_region="us-west-1"
 subnet_id="subnet-37b0de6c"
 key_name="wk-iad-dev-instance"
+create_eip=true

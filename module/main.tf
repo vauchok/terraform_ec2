@@ -47,6 +47,7 @@ resource "aws_instance" "ec2_instance" {
 resource "aws_eip" "this" {
   count = "${var.create_eip}"
   vpc      = true
-  instance = "${element(aws_instance.ec2_instance.*.id, aws_instance.ec2_instance.*.count.index)}"
+  instance = "${aws_instance.ec2_instance.*.id}"
 }
 
+# instance = "${element(aws_instance.ec2_instance.*.id, aws_instance.ec2_instance.*.count.index)}"

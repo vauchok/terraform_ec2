@@ -6,7 +6,6 @@ variable "number_of_instances" {}
 variable "subnet_id" {}
 variable "vpc_security_group_ids" {}
 variable "user_data" {}
-variable "security_groups" {}
 variable "tags" {}
 variable "aws_region" {}
 variable "count_eip" {}

@@ -6,7 +6,6 @@ variable "number_of_instances" {}
 variable "subnet_id" {}
 variable "vpc_security_group_ids" {}
 variable "user_data" {}
-variable "tags" {}
 variable "aws_region" {}
 variable "count_eip" {}
 
@@ -24,7 +23,7 @@ module "jenkins-slave" {
   key_name            = "${var.key_name}"
 
   #security_groups = "${var.security_groups}"
-  vpc_security_group_ids = "${var.vpc_security_group_ids}"
+  vpc_security_group_ids = ["${var.vpc_security_group_ids}"]
   instance_type          = "${var.instance_type}"
   user_data              = "${var.user_data}"
   count_eip             = "${var.count_eip}"

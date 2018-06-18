@@ -6,7 +6,7 @@ module "jenkins-slave" {
   source = "./module"
 
   instance_name       = "${var.instance_name}"
-  ami_id              = "${var.ami}"
+  ami                 = "${var.ami}"
   number_of_instances = "${var.number_of_instances}"
   subnet_id           = "${var.subnet_id}"
   key_name            = "${var.key_name}"

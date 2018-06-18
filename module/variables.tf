@@ -110,6 +110,11 @@ variable "ipv6_address_count" {
   default     = "0"
 }
 
+variable "ipv6_addresses" {
+  description = "Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface"
+  default     = []
+}
+
 variable "tags" {
   description = "(Optional) A mapping of tags to assign to the resource"
   default     = {}

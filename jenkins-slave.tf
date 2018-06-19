@@ -49,7 +49,7 @@ module "jenkins-slave" {
 
   instance_name          = "${var.instance_name}"
   number_of_instances    = "${var.number_of_instances}"
-  #subnet_id              = "${var.subnet_id}"
+  subnet_id              = "${var.subnet_id}"
   key_name               = "${var.key_name}"
   aws_region             = "${var.aws_region}"
   vpc_security_group_ids = ["${var.vpc_security_group_ids}"]
@@ -79,10 +79,11 @@ module "jenkins-slave" {
     virtual_name = "${var.virtual_name_ephemeral}"
     no_device    = "${var.no_device_ephemeral}"
   }]
-
+  /*
   network_interface = [{
     device_index = "${var.device_index}"
     network_interface_id = "${var.network_interface_id}"
     delete_on_termination = "${var.delete_on_termination_network_interface}"
   }]
+  */
 }

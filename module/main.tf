@@ -43,6 +43,7 @@ resource "aws_instance" "ec2_instance" {
     delete_on_termination = "${var.delete_on_termination_root}"
   }
 
+/*
   ebs_block_device {
     count = "${var.count_ebs}"
     device_name = "${var.device_name_ebs}"
@@ -53,6 +54,7 @@ resource "aws_instance" "ec2_instance" {
     delete_on_termination = "${var.delete_on_termination_ebs}"
     encrypted = "${var.encrypted_ebs}"
   }
+*/
 }
 
 resource "aws_eip" "this" {
@@ -60,5 +62,3 @@ resource "aws_eip" "this" {
   vpc      = true
   instance = "${element(aws_instance.ec2_instance.*.id, count.index)}"
 }
-
-

@@ -180,10 +180,10 @@ variable "volume_size_root" {
   default     = 100
 }
 
-#variable "iops_root" {
-#  description = "(Optional) The amount of provisioned IOPS. This is only valid for volume_type of 'io1', and must be specified if using that type"
-#  default     = ""
-#}
+variable "iops_root" {
+  description = "(Optional) The amount of provisioned IOPS. This is only valid for volume_type of 'io1', and must be specified if using that type"
+  default     = 1500
+}
 
 variable "delete_on_termination_root" {
   description = "(Optional) Whether the volume should be destroyed on instance termination"
@@ -212,10 +212,10 @@ variable "volume_size_ebs" {
   default     = 10
 }
 
-#variable "iops_ebs" {
-#  description = "(Optional) The amount of provisioned IOPS. This is only valid for volume_type of 'io1', and must be specified if using that type"
-#  default     = 1500
-#}
+variable "iops_ebs" {
+  description = "(Optional) The amount of provisioned IOPS. This is only valid for volume_type of 'io1', and must be specified if using that type"
+  default     = 1500
+}
 
 variable "delete_on_termination_ebs" {
   description = "(Optional) Whether the volume should be destroyed on instance termination"
@@ -298,6 +298,7 @@ variable "ami" {
   }
 }
 
+/*
 variable "count_ebs" {
   default = 1
 }
@@ -318,3 +319,4 @@ variable "iops_root" {
     "io1" = "1500"
   }
 }
+*/

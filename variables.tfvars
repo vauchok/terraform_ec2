@@ -24,6 +24,6 @@ delete_on_termination_ebs=true
 encrypted_ebs=false
 
 # ephemeral_block_device
-device_name_ephemeral="/dev/sdk"
+device_name_ephemeral="xvdf"
 virtual_name_ephemeral="ephemeral0"
 no_device_ephemeral=false

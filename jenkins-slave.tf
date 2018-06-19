@@ -71,7 +71,7 @@ module "jenkins-slave" {
   }]
 
   ephemeral_block_device = [{
-    device_name  = "${var.device_name_ebs}"
+    device_name  = "${var.device_name_ephemeral}"
     virtual_name = "${var.virtual_name_ephemeral}"
     no_device    = "${var.no_device_ephemeral}"
   }]

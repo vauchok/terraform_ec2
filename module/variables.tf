@@ -67,9 +67,9 @@ variable "vpc_security_group_ids" {
   default     = []
 }
 
-variable "subnet_id" {
-  description = "(Optional) The VPC Subnet ID to launch in"
-}
+#variable "subnet_id" {
+#  description = "(Optional) The VPC Subnet ID to launch in"
+#}
 
 variable "associate_public_ip_address" {
   description = "(Optional) Associate a public ip address with an instance in a VPC. Boolean value"

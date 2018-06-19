@@ -5,7 +5,7 @@ resource "aws_instance" "ec2_instance" {
   ami                                  = "${lookup(var.ami, var.aws_region)}"
   instance_type                        = "${var.instance_type}"
   user_data                            = "${file(var.user_data)}"
-  subnet_id                            = "${var.subnet_id}"
+  #subnet_id                            = "${var.subnet_id}"
   key_name                             = "${var.key_name}"
   monitoring                           = "${var.monitoring}"
   vpc_security_group_ids               = ["${var.vpc_security_group_ids}"]

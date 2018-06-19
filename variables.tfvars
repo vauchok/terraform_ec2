@@ -5,7 +5,7 @@ count_eip=1
 user_data="./userdata.sh"
 vpc_security_group_ids=["sg-6a013413","sg-9bcaffe2"]
 aws_region="us-west-1"
-subnet_id="subnet-276b3640"
+#subnet_id="subnet-276b3640"
 key_name="wk-iad-dev-instance"
 
 # root_block_device

@@ -19,9 +19,9 @@ provider "aws" {
 variable "root_block_device" {
   type = "list"
 }
-variable "ebs_block_device" {
-  type = "list"
-}
+#variable "ebs_block_device" {
+#  type = "list"
+#}
 variable "ephemeral_block_device" {
   type = "list"
 }

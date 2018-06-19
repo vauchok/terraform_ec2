@@ -16,6 +16,16 @@ provider "aws" {
   region = "${var.aws_region}"
 }
 
+variable "root_block_device" {
+  description = "(Optional) Customize details about the root block device of the instance. See Block Devices below for details"
+  default     = {}
+}
+
+variable "ebs_block_device" {
+  description = "(Optional) Additional EBS block devices to attach to the instance. See Block Devices below for details"
+  default     = {}
+}
+
 
 # Block Devices
 # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html

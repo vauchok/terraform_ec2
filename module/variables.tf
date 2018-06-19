@@ -309,3 +309,11 @@ variable "iops_ebs" {
     "io1" = 1500
   }
 }
+
+variable "iops_root" {
+  type = "map"
+
+  default = {
+    "io1" = 1500
+  }
+}

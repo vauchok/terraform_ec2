@@ -31,7 +31,6 @@ variable "ephemeral_block_device" {
   default     = []
 }
 
-
 # Block Devices
 # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
 # Currently, changes to *_block_device configuration of existing resources cannot be automatically detected by Terraform.
@@ -58,7 +57,6 @@ variable "delete_on_termination_root" {
   description = "(Optional) Whether the volume should be destroyed on instance termination"
   default     = true
 }
-
 
 # ebs_block_device. Modifying any ebs_block_device currently requires resource replacement.
 # ebs_block_device cannot be mixed with external aws_ebs_volume + aws_volume_attachment resources:
@@ -114,7 +112,6 @@ variable "no_device_ephemeral" {
   default     = false
 }
 
-
 module "jenkins-slave" {
   source = "./module"
 
@@ -129,27 +126,25 @@ module "jenkins-slave" {
   count_eip              = "${var.count_eip}"
 
   root_block_device = [{
-    volume_type = "${var.volume_type_root}"
-    volume_size = "${var.volume_size_root}"
-    iops = "${var.iops_root}"
+    volume_type           = "${var.volume_type_root}"
+    volume_size           = "${var.volume_size_root}"
+    iops                  = "${var.iops_root}"
     delete_on_termination = "${var.delete_on_termination_root}"
   }]
 
   ebs_block_device = [{
-    device_name = "${var.device_name_ebs}"
-    snapshot_id = "${var.snapshot_id_ebs}"
-    volume_type = "${var.volume_type_ebs}"
-    volume_size = "${var.volume_size_ebs}"
-    iops = "${var.iops_ebs}"
+    device_name           = "${var.device_name_ebs}"
+    snapshot_id           = "${var.snapshot_id_ebs}"
+    volume_type           = "${var.volume_type_ebs}"
+    volume_size           = "${var.volume_size_ebs}"
+    iops                  = "${var.iops_ebs}"
     delete_on_termination = "${var.delete_on_termination_ebs}"
-    encrypted = "${var.encrypted_ebs}"
+    encrypted             = "${var.encrypted_ebs}"
   }]
 
   ephemeral_block_device = [{
-    device_name = "${var.device_name_ebs}"
+    device_name  = "${var.device_name_ebs}"
     virtual_name = "${var.virtual_name_ephemeral}"
-    no_device = "${var.no_device_ephemeral}"
+    no_device    = "${var.no_device_ephemeral}"
   }]
-
-
 }

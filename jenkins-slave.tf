@@ -16,9 +16,9 @@ provider "aws" {
   region = "${var.aws_region}"
 }
 
-variable "root_block_device" {
-  type = "list"
-}
+#variable "root_block_device" {
+#  type = "list"
+#}
 #variable "ebs_block_device" {
 #  type = "list"
 #}

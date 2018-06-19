@@ -1,3 +1,25 @@
+variable "ami" {
+  type = "map"
+
+  default = {
+    "us-east-1"      = "ami-4bf3d731"
+    "us-east-2"      = "ami-e1496384"
+    "us-west-1"      = "ami-65e0e305"
+    "us-west-2"      = "ami-a042f4d8"
+    "eu-central-1"   = "ami-337be65c"
+    "eu-west-1"      = "ami-6e28b517"
+    "eu-west-2"      = "ami-ee6a718a"
+    "eu-west-3"      = "ami-bfff49c2"
+    "sa-east-1"      = "ami-f9adef95"
+    "ca-central-1"   = "ami-dcad28b8"
+    "ap-southeast-2" = "ami-b6bb47d4"
+    "ap-southeast-1" = "ami-d2fa88ae"
+    "ap-south-1"     = "ami-5d99ce32"
+    "ap-northeast-2" = "ami-7248e81c"
+    "ap-northeast-1" = "ami-25bd2743"
+  }
+}
+
 variable "number_of_instances" {
   description = "Number of instances to make"
 }
@@ -53,12 +75,6 @@ variable "get_password_data" {
 variable "monitoring" {
   description = "(Optional) If true, the launched EC2 instance will have detailed monitoring enabled"
   default     = false
-}
-
-variable "security_groups" {
-  description = "(Optional) A list of security group names to associate with. If you are creating Instances in a VPC, use vpc_security_group_ids instead"
-  type        = "list"
-  default     = []
 }
 
 variable "vpc_security_group_ids" {
@@ -136,18 +152,11 @@ variable "ephemeral_block_device" {
   default     = []
 }
 
-variable "network_interface" {
-  description = "(Optional) Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details"
-  default     = []
-}
-
 variable "credit_specification" {
   description = "(Optional) Customize the credit specification of the instance. See Credit Specification below for more details"
   default     = []
 }
 
-# timeouts
-# https://www.terraform.io/docs/configuration/resources.html#timeouts 
 variable "create" {
   description = "(Defaults to 10 mins) Used when launching the instance (until it reaches the initial running state)"
   default     = "10m"
@@ -172,24 +181,14 @@ variable "aws_region" {
   description = "AWS region for ami"
 }
 
-variable "ami" {
-  type = "map"
-
-  default = {
-    "us-east-1"      = "ami-4bf3d731"
-    "us-east-2"      = "ami-e1496384"
-    "us-west-1"      = "ami-65e0e305"
-    "us-west-2"      = "ami-a042f4d8"
-    "eu-central-1"   = "ami-337be65c"
-    "eu-west-1"      = "ami-6e28b517"
-    "eu-west-2"      = "ami-ee6a718a"
-    "eu-west-3"      = "ami-bfff49c2"
-    "sa-east-1"      = "ami-f9adef95"
-    "ca-central-1"   = "ami-dcad28b8"
-    "ap-southeast-2" = "ami-b6bb47d4"
-    "ap-southeast-1" = "ami-d2fa88ae"
-    "ap-south-1"     = "ami-5d99ce32"
-    "ap-northeast-2" = "ami-7248e81c"
-    "ap-northeast-1" = "ami-25bd2743"
-  }
+variable "security_groups" {
+  description = "(Optional) A list of security group names to associate with. If you are creating Instances in a VPC, use vpc_security_group_ids instead"
+  type        = "list"
+  default     = []
 }
+
+variable "network_interface" {
+  description = "(Optional) Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details"
+  default     = []
+}
+

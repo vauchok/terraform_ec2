@@ -25,6 +25,7 @@ resource "aws_instance" "ec2_instance" {
   placement_group                      = "${var.placement_group}"
   tenancy                              = "${var.tenancy}"
   credit_specification                 = "${var.credit_specification}"
+  #security_groups                     = "${var.security_groups}"
   #network_interface                   = "${var.network_interface}"
 
   tags = "${merge(var.tags, map("Name", var.number_of_instances > 1 ? format("%s-%d", var.instance_name, count.index+1) : var.instance_name))}"

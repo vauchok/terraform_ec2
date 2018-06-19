@@ -15,9 +15,9 @@ iops_root=1500
 delete_on_termination_root=true
 
 # ebs_block_device
-device_name_ebs="/dev/sdf"
+device_name_ebs="xvdh"
 snapshot_id_ebs=""
-volume_type_ebs="standard"
+volume_type_ebs="gp2"
 volume_size_ebs=10
 iops_ebs=1500
 delete_on_termination_ebs=true

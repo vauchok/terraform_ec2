@@ -16,6 +16,36 @@ provider "aws" {
   region = "${var.aws_region}"
 }
 
+
+# Block Devices
+# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
+# Currently, changes to *_block_device configuration of existing resources cannot be automatically detected by Terraform.
+# After making updates to block device configuration, resource recreation can be manually triggered by using the taint command.
+# https://www.terraform.io/docs/commands/taint.html
+
+# root_block_device. Modifying any of the root_block_device settings requires resource replacement:
+variable "volume_type_root" {
+  description = "(Optional) The type of volume. Can be 'standard', 'gp2', or 'io1'"
+  default     = "standard"
+}
+
+variable "volume_size_root" {
+  description = "(Optional) The size of the volume in gigabytes"
+  default     = 100
+}
+
+variable "iops_root" {
+  description = "(Optional) The amount of provisioned IOPS. This is only valid for volume_type of 'io1', and must be specified if using that type"
+  default     = 1500
+}
+
+variable "delete_on_termination_root" {
+  description = "(Optional) Whether the volume should be destroyed on instance termination"
+  default     = true
+}
+
+
+
 module "jenkins-slave" {
   source = "./module"
 
@@ -28,4 +58,23 @@ module "jenkins-slave" {
   instance_type          = "${var.instance_type}"
   user_data              = "${var.user_data}"
   count_eip              = "${var.count_eip}"
+
+  root_block_device {
+    volume_type = "${var.volume_type_root}"
+    volume_size = "${var.volume_size_root}"
+    iops = "${var.iops_root}"
+    delete_on_termination = "${var.delete_on_termination_root}"
+  }
+/*
+  ebs_block_device {
+    count = "${var.count_ebs}"
+    device_name = "${var.device_name_ebs}"
+    snapshot_id = "${var.snapshot_id_ebs}"
+    volume_type = "${var.volume_type_ebs}"
+    volume_size = "${var.volume_size_ebs}"
+    iops = "${var.iops_ebs}"
+    delete_on_termination = "${var.delete_on_termination_ebs}"
+    encrypted = "${var.encrypted_ebs}"
+  }
+  */
 }

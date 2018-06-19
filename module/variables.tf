@@ -163,33 +163,6 @@ variable "delete" {
   default     = 10
 }
 
-# Block Devices
-# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
-# Currently, changes to *_block_device configuration of existing resources cannot be automatically detected by Terraform.
-# After making updates to block device configuration, resource recreation can be manually triggered by using the taint command.
-# https://www.terraform.io/docs/commands/taint.html
-
-# root_block_device. Modifying any of the root_block_device settings requires resource replacement:
-variable "volume_type_root" {
-  description = "(Optional) The type of volume. Can be 'standard', 'gp2', or 'io1'"
-  default     = "standard"
-}
-
-variable "volume_size_root" {
-  description = "(Optional) The size of the volume in gigabytes"
-  default     = 100
-}
-
-variable "iops_root" {
-  description = "(Optional) The amount of provisioned IOPS. This is only valid for volume_type of 'io1', and must be specified if using that type"
-  default     = 1500
-}
-
-variable "delete_on_termination_root" {
-  description = "(Optional) Whether the volume should be destroyed on instance termination"
-  default     = true
-}
-
 # ebs_block_device. Modifying any ebs_block_device currently requires resource replacement.
 # ebs_block_device cannot be mixed with external aws_ebs_volume + aws_volume_attachment resources:
 variable "device_name_ebs" {
@@ -297,26 +270,3 @@ variable "ami" {
     "ap-northeast-1" = "ami-25bd2743"
   }
 }
-
-/*
-variable "count_ebs" {
-  default = 1
-}
-
-variable "iops_ebs" {
-  type = "map"
-
-  default = {
-    "io1" = "1500"
-    "standard" = ""
-  }
-}
-
-variable "iops_root" {
-  type = "map"
-
-  default = {
-    "io1" = "1500"
-  }
-}
-*/

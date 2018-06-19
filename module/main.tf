@@ -10,9 +10,6 @@ resource "aws_instance" "ec2_instance" {
   monitoring             = "${var.monitoring}"
   vpc_security_group_ids = ["${var.vpc_security_group_ids}"]
   iam_instance_profile   = "${var.iam_instance_profile}"
-
-  #security_groups = "${var.security_groups}"
-
   associate_public_ip_address          = "${var.associate_public_ip_address}"
   private_ip                           = "${var.private_ip}"
   ipv6_address_count                   = "${var.ipv6_address_count}"

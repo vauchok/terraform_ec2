@@ -31,7 +31,8 @@ resource "aws_instance" "ec2_instance" {
     # we have to ignore changes in the following arguments
     ignore_changes = ["private_ip", "root_block_device"]
   }
-
+  
+/*
   credit_specification {
     cpu_credits = "${var.cpu_credits}"
   }
@@ -43,14 +44,13 @@ resource "aws_instance" "ec2_instance" {
     delete_on_termination = "${var.delete_on_termination_root}"
   }
 
-/*
   ebs_block_device {
     count = "${var.count_ebs}"
     device_name = "${var.device_name_ebs}"
     snapshot_id = "${var.snapshot_id_ebs}"
     volume_type = "${var.volume_type_ebs}"
     volume_size = "${var.volume_size_ebs}"
-    iops = "${lookup(var.iops_ebs,var.volume_type_ebs)}"
+    iops = "${var.iops_ebs}"
     delete_on_termination = "${var.delete_on_termination_ebs}"
     encrypted = "${var.encrypted_ebs}"
   }

@@ -172,7 +172,7 @@ variable "delete" {
 # root_block_device. Modifying any of the root_block_device settings requires resource replacement:
 variable "volume_type_root" {
   description = "(Optional) The type of volume. Can be 'standard', 'gp2', or 'io1'"
-  default     = ""
+  default     = "standard"
 }
 
 variable "volume_size_root" {

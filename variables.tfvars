@@ -1,7 +1,7 @@
 instance_name="jenkins-slave"
 instance_type="t2.micro"
-number_of_instances=2
-count_eip=2
+number_of_instances=1
+count_eip=1
 user_data="./userdata.sh"
 vpc_security_group_ids=["sg-6a013413","sg-9bcaffe2"]
 aws_region="us-west-1"

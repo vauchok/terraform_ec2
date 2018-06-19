@@ -69,7 +69,7 @@ module "jenkins-slave" {
   user_data              = "${var.user_data}"
   count_eip              = "${var.count_eip}"
 
-  root_block_device [{
+  root_block_device = [{
     volume_type = "${var.volume_type_root}"
     volume_size = "${var.volume_size_root}"
     iops = "${var.iops_root}"

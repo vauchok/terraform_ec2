@@ -31,7 +31,16 @@ resource "aws_instance" "ec2_instance" {
     # we have to ignore changes in the following arguments
     ignore_changes = ["private_ip", "root_block_device"]
   }
-  
+
+  root_block_device {
+    volume_type = "${var.volume_type_root}"
+    volume_size = "${var.volume_size_root}"
+    iops = "${var.iops_root}"
+    delete_on_termination = "${var.delete_on_termination_root}"
+    enabled = true
+  }
+
+
 /*
   credit_specification {
     cpu_credits = "${var.cpu_credits}"

@@ -16,7 +16,6 @@ resource "aws_instance" "ec2_instance" {
   ipv6_addresses                       = "${var.ipv6_addresses}"
   ebs_optimized                        = "${var.ebs_optimized}"
   volume_tags                          = "${var.volume_tags}"
-  #root_block_device                    = "${var.root_block_device}"
   ebs_block_device                     = "${var.ebs_block_device}"
   ephemeral_block_device               = "${var.ephemeral_block_device}"
   source_dest_check                    = "${var.source_dest_check}"
@@ -41,7 +40,18 @@ resource "aws_instance" "ec2_instance" {
   root_block_device {
     volume_type = "${var.volume_type_root}"
     volume_size = "${var.volume_size_root}"
+    iops = "${var.iops_root}"
     delete_on_termination = "${var.delete_on_termination_root}"
+  }
+
+  ebs_block_device {
+    device_name = "${var.device_name_ebs}"
+    snapshot_id = "${var.snapshot_id_ebs}"
+    volume_type = "${var.volume_type_ebs}"
+    volume_size = "${var.volume_size_ebs}"
+    iops = "${var.iops_ebs}"
+    delete_on_termination = "${var.delete_on_termination_ebs}"
+    encrypted = "${var.encrypted_ebs}"
   }
 }
 

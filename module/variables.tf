@@ -180,10 +180,10 @@ variable "volume_size_root" {
   default     = 100
 }
 
-variable "iops_root" {
-  description = "(Optional) The amount of provisioned IOPS. This is only valid for volume_type of 'io1', and must be specified if using that type"
-  default     = ""
-}
+#variable "iops_root" {
+#  description = "(Optional) The amount of provisioned IOPS. This is only valid for volume_type of 'io1', and must be specified if using that type"
+#  default     = ""
+#}
 
 variable "delete_on_termination_root" {
   description = "(Optional) Whether the volume should be destroyed on instance termination"
@@ -194,7 +194,7 @@ variable "delete_on_termination_root" {
 # ebs_block_device cannot be mixed with external aws_ebs_volume + aws_volume_attachment resources:
 variable "device_name_ebs" {
   description = "The name of the device to mount (available for ephemeral_block_device too)"
-  default     = ""
+  default     = "/dev/sdf"
 }
 
 variable "snapshot_id_ebs" {
@@ -209,13 +209,13 @@ variable "volume_type_ebs" {
 
 variable "volume_size_ebs" {
   description = "(Optional) The size of the volume in gigabytes"
-  default     = ""
+  default     = 10
 }
 
-variable "iops_ebs" {
-  description = "(Optional) The amount of provisioned IOPS. This is only valid for volume_type of 'io1', and must be specified if using that type"
-  default     = ""
-}
+#variable "iops_ebs" {
+#  description = "(Optional) The amount of provisioned IOPS. This is only valid for volume_type of 'io1', and must be specified if using that type"
+#  default     = 1500
+#}
 
 variable "delete_on_termination_ebs" {
   description = "(Optional) Whether the volume should be destroyed on instance termination"
@@ -295,5 +295,17 @@ variable "ami" {
     "ap-south-1"     = "ami-5d99ce32"
     "ap-northeast-2" = "ami-7248e81c"
     "ap-northeast-1" = "ami-25bd2743"
+  }
+}
+
+variable "count_ebs" {
+  default = 1
+}
+
+variable "iops_root" {
+  type = "map"
+
+  default = {
+    "io1" = 1500
   }
 }

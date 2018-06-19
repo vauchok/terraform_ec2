@@ -163,22 +163,6 @@ variable "delete" {
   default     = 10
 }
 
-# Network interfaces
-variable "device_index" {
-  description = "(Required) The integer index of the network interface attachment. Limited by instance type"
-  default     = ""
-}
-
-variable "network_interface_id" {
-  description = "(Required) The ID of the network interface to attach"
-  default     = ""
-}
-
-variable "delete_on_termination_network_interface" {
-  description = "(Optional) Whether or not to delete the network interface on instance termination. Currently, the only valid value is false, as this is only supported when creating new network interfaces when launching an instance"
-  default     = false
-}
-
 # Credit specification
 # can be applied/modified to the EC2 Instance at any time
 variable "cpu_credits" {

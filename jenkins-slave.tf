@@ -12,20 +12,17 @@ variable "user_data" {}
 variable "aws_region" {}
 variable "count_eip" {}
 
-# Block Devices
-# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
-# Currently, changes to *_block_device configuration of existing resources cannot be automatically detected by Terraform.
-# After making updates to block device configuration, resource recreation can be manually triggered by using the taint command.
-# https://www.terraform.io/docs/commands/taint.html
 
-# root_block_device. Modifying any of the root_block_device settings requires resource replacement:
+# Block Devices
+# https://www.terraform.io/docs/providers/aws/r/instance.html#block-devices
+
+# root_block_device
 variable "volume_type_root" {}
 variable "volume_size_root" {}
 variable "iops_root" {}
 variable "delete_on_termination_root" {}
 
-# ebs_block_device. Modifying any ebs_block_device currently requires resource replacement.
-# ebs_block_device cannot be mixed with external aws_ebs_volume + aws_volume_attachment resources:
+# ebs_block_device
 variable "device_name_ebs" {}
 variable "snapshot_id_ebs" {}
 variable "volume_type_ebs" {}
@@ -35,10 +32,17 @@ variable "delete_on_termination_ebs" {}
 variable "encrypted_ebs" {}
 
 # ephemeral_block_device
-# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames
 variable "device_name_ephemeral" {}
 variable "virtual_name_ephemeral" {}
 variable "no_device_ephemeral" {}
+
+
+# Network interfaces
+# https://www.terraform.io/docs/providers/aws/r/instance.html#network-interfaces
+variable "device_index" {}
+variable "network_interface_id" {}
+variable "delete_on_termination_network_interface" {}
+
 
 module "jenkins-slave" {
   source = "./module"
@@ -74,5 +78,11 @@ module "jenkins-slave" {
     device_name  = "${var.device_name_ephemeral}"
     virtual_name = "${var.virtual_name_ephemeral}"
     no_device    = "${var.no_device_ephemeral}"
+  }]
+
+  network_interface = [{
+    device_index = "${var.device_index}"
+    network_interface_id = "${var.network_interface_id}"
+    delete_on_termination = "${var.delete_on_termination_network_interface}"
   }]
 }

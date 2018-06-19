@@ -27,3 +27,8 @@ encrypted_ebs=false
 device_name_ephemeral="xvdf"
 virtual_name_ephemeral="ephemeral0"
 no_device_ephemeral=false
+
+# Network interfaces
+device_index=1
+network_interface_id="eni-a43d388a"
+delete_on_termination_network_interface=false

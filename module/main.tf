@@ -19,6 +19,7 @@ resource "aws_instance" "ec2_instance" {
   root_block_device                    = "${var.root_block_device}"
   ebs_block_device                     = "${var.ebs_block_device}"
   ephemeral_block_device               = "${var.ephemeral_block_device}"
+  network_interface = "${var.network_interface}"
   source_dest_check                    = "${var.source_dest_check}"
   disable_api_termination              = "${var.disable_api_termination}"
   instance_initiated_shutdown_behavior = "${var.instance_initiated_shutdown_behavior}"

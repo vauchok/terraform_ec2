@@ -306,7 +306,7 @@ variable "iops_ebs" {
   type = "map"
 
   default = {
-    "io1" = 1500
+    "io1" = "1500"
   }
 }
 
@@ -314,6 +314,6 @@ variable "iops_root" {
   type = "map"
 
   default = {
-    "io1" = 1500
+    "io1" = "1500"
   }
 }

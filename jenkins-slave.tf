@@ -19,7 +19,7 @@ module "jenkins-slave" {
   number_of_instances = "${var.number_of_instances}"
   subnet_id           = "${var.subnet_id}"
   key_name            = "${var.key_name}"
-
+  aws_region          = "${var.aws_region}"
   vpc_security_group_ids = ["${var.vpc_security_group_ids}"]
   instance_type          = "${var.instance_type}"
   user_data              = "${var.user_data}"

@@ -150,17 +150,17 @@ variable "credit_specification" {
 # https://www.terraform.io/docs/configuration/resources.html#timeouts 
 variable "create" {
   description = "(Defaults to 10 mins) Used when launching the instance (until it reaches the initial running state)"
-  default     = 10
+  default     = "10m"
 }
 
 variable "update" {
   description = "(Defaults to 10 mins) Used when stopping and starting the instance when necessary during update - e.g. when changing instance type"
-  default     = 10
+  default     = "10m"
 }
 
 variable "delete" {
   description = "(Defaults to 20 mins) Used when terminating the instance"
-  default     = 10
+  default     = "10m"
 }
 
 variable "count_eip" {

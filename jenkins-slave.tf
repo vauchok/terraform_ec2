@@ -18,12 +18,12 @@ provider "aws" {
 
 variable "root_block_device" {
   description = "(Optional) Customize details about the root block device of the instance. See Block Devices below for details"
-  default     = {}
+  default     = []
 }
 
 variable "ebs_block_device" {
   description = "(Optional) Additional EBS block devices to attach to the instance. See Block Devices below for details"
-  default     = {}
+  default     = []
 }
 
 
@@ -69,12 +69,12 @@ module "jenkins-slave" {
   user_data              = "${var.user_data}"
   count_eip              = "${var.count_eip}"
 
-  root_block_device {
+  root_block_device [{
     volume_type = "${var.volume_type_root}"
     volume_size = "${var.volume_size_root}"
     iops = "${var.iops_root}"
     delete_on_termination = "${var.delete_on_termination_root}"
-  }
+  }]
 /*
   ebs_block_device {
     count = "${var.count_ebs}"

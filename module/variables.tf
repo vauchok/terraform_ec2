@@ -172,7 +172,7 @@ variable "delete" {
 # root_block_device. Modifying any of the root_block_device settings requires resource replacement:
 variable "volume_type_root" {
   description = "(Optional) The type of volume. Can be 'standard', 'gp2', or 'io1'"
-  default     = "io1"
+  default     = ""
 }
 
 variable "volume_size_root" {
@@ -194,7 +194,7 @@ variable "delete_on_termination_root" {
 # ebs_block_device cannot be mixed with external aws_ebs_volume + aws_volume_attachment resources:
 variable "device_name_ebs" {
   description = "The name of the device to mount (available for ephemeral_block_device too)"
-  default     = "/dev/sdf"
+  default     = ""
 }
 
 variable "snapshot_id_ebs" {

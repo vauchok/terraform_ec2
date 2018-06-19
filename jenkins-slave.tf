@@ -1,12 +1,9 @@
 variable "instance_name" {}
 variable "instance_type" {}
-variable "ami" {}
 variable "key_name" {}
 variable "number_of_instances" {}
 variable "subnet_id" {}
-variable "vpc_security_group_ids" {
-  type = "list"
-}
+variable "vpc_security_group_ids" { type = "list" }
 variable "user_data" {}
 variable "aws_region" {}
 variable "count_eip" {}
@@ -19,7 +16,6 @@ module "jenkins-slave" {
   source = "./module"
 
   instance_name       = "${var.instance_name}"
-  ami                 = "${var.ami}"
   number_of_instances = "${var.number_of_instances}"
   subnet_id           = "${var.subnet_id}"
   key_name            = "${var.key_name}"

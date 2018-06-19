@@ -1,6 +1,5 @@
 instance_name="jenkins-slave"
 instance_type="t2.micro"
-ami="ami-78485818"
 number_of_instances=2
 count_eip=2
 user_data="./userdata.sh"

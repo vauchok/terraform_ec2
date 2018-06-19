@@ -307,6 +307,7 @@ variable "iops_ebs" {
 
   default = {
     "io1" = "1500"
+    "standard" = ""
   }
 }
 

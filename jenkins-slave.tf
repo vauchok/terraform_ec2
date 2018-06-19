@@ -16,16 +16,6 @@ provider "aws" {
   region = "${var.aws_region}"
 }
 
-#variable "root_block_device" {
-#  type = "list"
-#}
-#variable "ebs_block_device" {
-#  type = "list"
-#}
-#variable "ephemeral_block_device" {
-#  type = "list"
-#}
-
 # Block Devices
 # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
 # Currently, changes to *_block_device configuration of existing resources cannot be automatically detected by Terraform.

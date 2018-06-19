@@ -39,9 +39,9 @@ resource "aws_instance" "ec2_instance" {
   }
 
   root_block_device {
-    volume_type_root = "${var.volume_type_root}"
-    volume_size_root = "${var.volume_size_root}"
-    delete_on_termination_root = "${var.delete_on_termination_root}"
+    volume_type = "${var.volume_type_root}"
+    volume_size = "${var.volume_size_root}"
+    delete_on_termination = "${var.delete_on_termination_root}"
   }
 }
 

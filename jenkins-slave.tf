@@ -136,7 +136,6 @@ module "jenkins-slave" {
   }]
 
   ebs_block_device = [{
-    count = "${var.count_ebs}"
     device_name = "${var.device_name_ebs}"
     snapshot_id = "${var.snapshot_id_ebs}"
     volume_type = "${var.volume_type_ebs}"

@@ -302,7 +302,7 @@ variable "count_ebs" {
   default = 1
 }
 
-variable "iops_root" {
+variable "iops_ebs" {
   type = "map"
 
   default = {

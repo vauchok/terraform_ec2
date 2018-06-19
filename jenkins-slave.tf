@@ -1,20 +1,16 @@
+provider "aws" {
+  region = "${var.aws_region}"
+}
+
 variable "instance_name" {}
 variable "instance_type" {}
 variable "key_name" {}
 variable "number_of_instances" {}
 variable "subnet_id" {}
-
-variable "vpc_security_group_ids" {
-  type = "list"
-}
-
+variable "vpc_security_group_ids" { type = "list" }
 variable "user_data" {}
 variable "aws_region" {}
 variable "count_eip" {}
-
-provider "aws" {
-  region = "${var.aws_region}"
-}
 
 # Block Devices
 # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
@@ -24,7 +20,6 @@ provider "aws" {
 
 # root_block_device. Modifying any of the root_block_device settings requires resource replacement:
 variable "volume_type_root" {}
-
 variable "volume_size_root" {}
 variable "iops_root" {}
 variable "delete_on_termination_root" {}
@@ -32,7 +27,6 @@ variable "delete_on_termination_root" {}
 # ebs_block_device. Modifying any ebs_block_device currently requires resource replacement.
 # ebs_block_device cannot be mixed with external aws_ebs_volume + aws_volume_attachment resources:
 variable "device_name_ebs" {}
-
 variable "snapshot_id_ebs" {}
 variable "volume_type_ebs" {}
 variable "volume_size_ebs" {}
@@ -43,7 +37,6 @@ variable "encrypted_ebs" {}
 # ephemeral_block_device
 # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames
 variable "device_name_ephemeral" {}
-
 variable "virtual_name_ephemeral" {}
 variable "no_device_ephemeral" {}
 

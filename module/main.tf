@@ -16,7 +16,6 @@ resource "aws_instance" "ec2_instance" {
   ipv6_addresses                       = "${var.ipv6_addresses}"
   ebs_optimized                        = "${var.ebs_optimized}"
   volume_tags                          = "${var.volume_tags}"
-  ebs_block_device                     = "${var.ebs_block_device}"
   ephemeral_block_device               = "${var.ephemeral_block_device}"
   source_dest_check                    = "${var.source_dest_check}"
   disable_api_termination              = "${var.disable_api_termination}"

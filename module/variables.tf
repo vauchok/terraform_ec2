@@ -272,7 +272,7 @@ variable "count_eip" {
   default = 0
 }
 
-variable "aws_region" {
+variable "region" {
   description = "AWS region for ami"
 }
 

@@ -2,7 +2,7 @@
 resource "aws_instance" "ec2_instance" {
   count = "${var.number_of_instances}"
 
-  ami                    = "${lookup(var.ami, var.aws_region)}"
+  ami                    = "${lookup(var.ami, var.region)}"
   instance_type          = "${var.instance_type}"
   user_data              = "${file(var.user_data)}"
   subnet_id              = "${var.subnet_id}"

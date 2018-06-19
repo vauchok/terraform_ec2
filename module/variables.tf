@@ -123,7 +123,7 @@ variable "volume_tags" {
 
 variable "root_block_device" {
   description = "(Optional) Customize details about the root block device of the instance. See Block Devices below for details"
-  default     = []
+  default     = {}
 }
 
 variable "ebs_block_device" {

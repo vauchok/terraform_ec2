@@ -22,9 +22,9 @@ variable "root_block_device" {
 #variable "ebs_block_device" {
 #  type = "list"
 #}
-variable "ephemeral_block_device" {
-  type = "list"
-}
+#variable "ephemeral_block_device" {
+#  type = "list"
+#}
 
 # Block Devices
 # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html

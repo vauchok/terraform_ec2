@@ -13,3 +13,17 @@ volume_type_root="standard"
 volume_size_root=100
 iops_root=1500
 delete_on_termination_root=true
+
+# ebs_block_device
+device_name_ebs="/dev/sdf"
+snapshot_id_ebs=""
+volume_type_ebs="standard"
+volume_size_ebs=10
+iops_ebs=1500
+delete_on_termination_ebs=true
+encrypted_ebs=false
+
+# ephemeral_block_device
+device_name_ephemeral="/dev/sdk"
+virtual_name_ephemeral="ephemeral0"
+no_device_ephemeral=false

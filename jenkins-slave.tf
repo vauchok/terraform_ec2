@@ -92,8 +92,8 @@ module "jenkins-slave" {
     delete_on_termination = "${var.delete_on_termination_network_interface}"
   }]
   */
-  
-  credit_specification = {
+
+  credit_specification = [{
     cpu_credits = "${var.cpu_credits}"
-  }
+  }]
 }

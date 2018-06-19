@@ -24,8 +24,9 @@ resource "aws_instance" "ec2_instance" {
   instance_initiated_shutdown_behavior = "${var.instance_initiated_shutdown_behavior}"
   placement_group                      = "${var.placement_group}"
   tenancy                              = "${var.tenancy}"
+  credit_specification                 = "${var.credit_specification}"
   #network_interface                   = "${var.network_interface}"
-  credit_specification = "${var.credit_specification}"
+
   tags = "${merge(var.tags, map("Name", var.number_of_instances > 1 ? format("%s-%d", var.instance_name, count.index+1) : var.instance_name))}"
 
   lifecycle {

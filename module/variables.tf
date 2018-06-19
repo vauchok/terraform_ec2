@@ -143,7 +143,7 @@ variable "network_interface" {
 
 variable "credit_specification" {
   description = "(Optional) Customize the credit specification of the instance. See Credit Specification below for more details"
-  default     = {}
+  default     = []
 }
 
 # timeouts

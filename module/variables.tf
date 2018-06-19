@@ -163,60 +163,6 @@ variable "delete" {
   default     = 10
 }
 
-# ebs_block_device. Modifying any ebs_block_device currently requires resource replacement.
-# ebs_block_device cannot be mixed with external aws_ebs_volume + aws_volume_attachment resources:
-variable "device_name_ebs" {
-  description = "The name of the device to mount (available for ephemeral_block_device too)"
-  default     = ""
-}
-
-variable "snapshot_id_ebs" {
-  description = "(Optional) The Snapshot ID to mount"
-  default     = ""
-}
-
-variable "volume_type_ebs" {
-  description = "(Optional) The type of volume. Can be 'standard', 'gp2', or 'io1'"
-  default     = "standard"
-}
-
-variable "volume_size_ebs" {
-  description = "(Optional) The size of the volume in gigabytes"
-  default     = 10
-}
-
-variable "iops_ebs" {
-  description = "(Optional) The amount of provisioned IOPS. This is only valid for volume_type of 'io1', and must be specified if using that type"
-  default     = 1500
-}
-
-variable "delete_on_termination_ebs" {
-  description = "(Optional) Whether the volume should be destroyed on instance termination"
-  default     = true
-}
-
-variable "encrypted_ebs" {
-  description = "(Optional) Enables EBS encryption on the volume. Cannot be used with snapshot_id"
-  default     = false
-}
-
-# ephemeral_block_device
-# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames
-variable "device_name_ephemeral" {
-  description = "The name of the device to mount"
-  default     = ""
-}
-
-variable "virtual_name_ephemeral" {
-  description = "(Optional) The Instance Store Device Name (e.g. 'ephemeral0')"
-  default     = ""
-}
-
-variable "no_device_ephemeral" {
-  description = "(Optional) Suppresses the specified device included in the AMI's block device mapping"
-  default     = false
-}
-
 # Network interfaces
 variable "device_index" {
   description = "(Required) The integer index of the network interface attachment. Limited by instance type"

@@ -49,7 +49,7 @@ resource "aws_instance" "ec2_instance" {
     snapshot_id = "${var.snapshot_id_ebs}"
     volume_type = "${var.volume_type_ebs}"
     volume_size = "${var.volume_size_ebs}"
-    iops = "${var.iops_ebs}"
+    iops = "${lookup(var.volume_type_ebs, var.iops_ebs)}"
     delete_on_termination = "${var.delete_on_termination_ebs}"
     encrypted = "${var.encrypted_ebs}"
   }
@@ -60,3 +60,5 @@ resource "aws_eip" "this" {
   vpc      = true
   instance = "${element(aws_instance.ec2_instance.*.id, count.index)}"
 }
+
+

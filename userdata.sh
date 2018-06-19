@@ -1,7 +1,7 @@
 #!/bin/bash
 
 yum -y install epel-release
-yum -y install git, python-pip unzip
+yum -y install git, python-pip unzip wget
 pip install awscli
 
 mkdir -p /opt/jenkins/jenkins-slave

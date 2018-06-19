@@ -37,6 +37,12 @@ resource "aws_instance" "ec2_instance" {
   credit_specification {
     cpu_credits = "${var.cpu_credits}"
   }
+
+  root_block_device {
+    volume_type_root = "${var.volume_type_root}"
+    volume_size_root = "${var.volume_size_root}"
+    delete_on_termination_root = "${var.delete_on_termination_root}"
+  }
 }
 
 resource "aws_eip" "this" {

@@ -177,7 +177,7 @@ variable "volume_type_root" {
 
 variable "volume_size_root" {
   description = "(Optional) The size of the volume in gigabytes"
-  default     = ""
+  default     = 100
 }
 
 variable "iops_root" {

@@ -163,13 +163,6 @@ variable "delete" {
   default     = 10
 }
 
-# Credit specification
-# can be applied/modified to the EC2 Instance at any time
-variable "cpu_credits" {
-  description = "(Optional) The credit option for CPU usage"
-  default     = "standard"
-}
-
 variable "count_eip" {
   description = "If you want for each enstance - count_eip shoul equal number_of_instances"
   default     = 0

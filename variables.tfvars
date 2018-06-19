@@ -32,3 +32,6 @@ no_device_ephemeral=false
 device_index=1
 network_interface_id="eni-a43d388a"
 delete_on_termination_network_interface=false
+
+# credit_specification
+cpu_credits="standard"

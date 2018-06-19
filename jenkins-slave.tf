@@ -44,6 +44,11 @@ variable "network_interface_id" {}
 variable "delete_on_termination_network_interface" {}
 
 
+# Credit specification
+# https://www.terraform.io/docs/providers/aws/r/instance.html#credit-specification
+variable "cpu_credits" {}
+
+
 module "jenkins-slave" {
   source = "./module"
 
@@ -79,6 +84,7 @@ module "jenkins-slave" {
     virtual_name = "${var.virtual_name_ephemeral}"
     no_device    = "${var.no_device_ephemeral}"
   }]
+
   /*
   network_interface = [{
     device_index = "${var.device_index}"
@@ -86,4 +92,8 @@ module "jenkins-slave" {
     delete_on_termination = "${var.delete_on_termination_network_interface}"
   }]
   */
+  
+  credit_specification = {
+    cpu_credits = "${var.cpu_credits}"
+  }
 }
